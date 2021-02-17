@@ -1,0 +1,19 @@
+version: '3'
+services: 
+  phptest:
+    build: .
+    ports:
+      - "80:80"
+    depends_on: 
+      - mysqlc
+    networks: 
+      - my_net
+  mysqlc:
+    image: mysql
+    environment: 
+      MYSQL_ROOT_PASSWORD: ximena1984 
+    networks: 
+      - my_net
+networks: 
+  my_net:
+    driver: bridge
